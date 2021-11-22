@@ -18,10 +18,9 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
-  defaultNetwork: "rinkeby",
+ // defaultNetwork: "rinkeby",
   networks: {
-    hardhat: {
-    },
+    hardhat: {},
     rinkeby: {
       url: "https://eth-rinkeby.alchemyapi.io/v2/K_HdXdoxLZJSYc7VxXjqQSqAcvLlPhkG",
       accounts: [`0x${process.env.PRIVATE_KEY}`]
