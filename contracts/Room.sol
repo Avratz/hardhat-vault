@@ -12,6 +12,7 @@ contract Room {
 
   //Students[] students; //bad solution with array. 
   mapping(uint256 => Student) public students;
+  event StudentAdded(uint256 id, string name, string surname);
   uint256 lastId;
   address owner;
 
@@ -35,6 +36,7 @@ contract Room {
 
     //students.push(currentStudent);
     students[lastId] = currentStudent;
+    emit StudentAdded(lastId, _name, _surname);
   }
 
   function findStudent (uint256 _id) view public returns (Student memory){
