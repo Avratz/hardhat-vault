@@ -13,8 +13,18 @@ contract Room {
   //Students[] students; //bad solution with array. 
   mapping(uint256 => Student) public students;
   uint256 lastId;
+  address owner;
 
-  function addStudent (string memory _name, string memory _surname) public {
+  constructor(){
+    owner = msg.sender;
+  }
+
+  modifier onlyOwner {
+    require(msg.sender == owner, "Only owner can execute this function");
+    _;
+  }
+
+  function addStudent (string memory _name, string memory _surname) public onlyOwner {
     Student memory currentStudent;
     lastId++;
     //currentStudent.id = lastId;
